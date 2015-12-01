@@ -34,6 +34,11 @@ Makefile*
 *.qmlproject.user.*
 
 #remove plugins example and build stuff
-*/Plugins/SFML-2.3.2/*
-*/Plugins/jdksmidi-master/*
-*/Plugins/midifile-master/*
+SFML-2.3.2/
+jdksmidi-master/
+midifile-master/
+Build/Resources/Plugins/irrKlang-1.5.0/examples/
+Build/Resources/Plugins/irrKlang-1.5.0/examples.net/
+Build/Resources/Plugins/irrKlang-1.5.0/doc/
+Build/Resources/Plugins/irrKlang-1.5.0/media/
+Build/Resources/Plugins/irrKlang-1.5.0/readme
