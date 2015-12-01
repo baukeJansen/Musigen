@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\notefield.o
+./release\musicplayer.o
+./release\timer.o
+./release\recorder.o
+./release\instrument.o
+./release\melody.o
+./release\note.o
+./release\moc_mainwindow.o
+./release\moc_musicplayer.o
+);
