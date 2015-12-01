@@ -32,3 +32,8 @@ Makefile*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+
+#remove plugins example and build stuff
+*/Plugins/SFML-2.3.2/*
+*/Plugins/jdksmidi-master/*
+*/Plugins/midifile-master/*
