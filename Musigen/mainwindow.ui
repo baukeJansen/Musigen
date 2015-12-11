@@ -6,42 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
-    <height>457</height>
+    <width>477</width>
+    <height>426</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Play">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>30</x>
+      <y>90</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="notefieldWrapper" native="true">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>140</y>
-      <width>391</width>
-      <height>291</height>
-     </rect>
+     <string>Play</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Record">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>10</y>
+      <x>120</x>
+      <y>90</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -50,17 +40,17 @@
      <string>Record</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Play">
+   <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>10</y>
+      <x>210</x>
+      <y>90</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Play</string>
+     <string>PushButton</string>
     </property>
    </widget>
   </widget>

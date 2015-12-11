@@ -17,23 +17,37 @@ TEMPLATE = app
 PLUGINS = Resources/Plugins
 
 SOURCES += main.cpp \
-        mainwindow.cpp \
-        notefield.cpp \
     musicplayer.cpp \
     timer.cpp \
     recorder.cpp \
     Melody/instrument.cpp \
     Melody/melody.cpp \
-    Melody/note.cpp
+    Melody/note.cpp \
+    Interface/menubar.cpp \
+    Interface/notefield.cpp \
+    Interface/mainwindow.cpp \
+    mouselistener.cpp \
+    Interface/instrumentbar.cpp \
+    Interface/button.cpp \
+    Layout/layout.cpp \
+    Interface/customwidgetbase.cpp
 
-HEADERS += mainwindow.h \
-        notefield.h \
+HEADERS += \
     musicplayer.h \
     timer.h \
     recorder.h \
     Melody/instrument.h \
     Melody/melody.h \
-    Melody/note.h
+    Melody/note.h \
+    Interface/menubar.h \
+    Interface/notefield.h \
+    Interface/mainwindow.h \
+    mouseaction.h \
+    mouselistener.h \
+    Interface/instrumentbar.h \
+    Interface/button.h \
+    Layout/layout.h \
+    Interface/customwidgetbase.h
 
 FORMS   += mainwindow.ui
 
