@@ -7,6 +7,8 @@
 
 #include <QDebug>
 
+#define OUT_OF_BOUNDS QPointF(-1, -1)
+
 struct MouseArea {
 
     MouseAction *listener;

@@ -28,9 +28,11 @@ SOURCES += main.cpp \
     Interface/mainwindow.cpp \
     mouselistener.cpp \
     Interface/instrumentbar.cpp \
-    Interface/button.cpp \
     Layout/layout.cpp \
-    Interface/customwidgetbase.cpp
+    Interface/customwidgetbase.cpp \
+    Interface/buttons/button.cpp \
+    Interface/buttons/closebutton.cpp \
+    Interface/buttons/openpianobutton.cpp
 
 HEADERS += \
     musicplayer.h \
@@ -45,9 +47,11 @@ HEADERS += \
     mouseaction.h \
     mouselistener.h \
     Interface/instrumentbar.h \
-    Interface/button.h \
     Layout/layout.h \
-    Interface/customwidgetbase.h
+    Interface/customwidgetbase.h \
+    Interface/buttons/button.h \
+    Interface/buttons/closebutton.h \
+    Interface/buttons/openpianobutton.h
 
 FORMS   += mainwindow.ui
 

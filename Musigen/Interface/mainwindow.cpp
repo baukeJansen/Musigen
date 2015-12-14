@@ -15,20 +15,18 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     }
 
-    mouseListener = new MouseListener(ui->centralWidget);
-    notefield = new NoteField(ui->centralWidget, mp);
-    menubar = new MenuBar(ui->centralWidget);
-    closeButton = new Button(ui->centralWidget);
+    mouseListener = QSharedPointer<MouseListener> (new MouseListener(ui->centralWidget));
+
+    //notefield   = QSharedPointer<NoteField> (new NoteField(ui->centralWidget, mp));
+    menubar     = QSharedPointer<MenuBar> (new MenuBar(ui->centralWidget));
+    closeButton = QSharedPointer<CloseButton> (new CloseButton(ui->centralWidget));
 
     setWindowFlags(Qt::Widget | Qt::CustomizeWindowHint);
-
     //setWindowFlags(Qt::FramelessWindowHint );
 
 }
 
 void MainWindow::on_pushButton_clicked() {
-
-    //engine->play2D("C:\\Users\\Bauke\\Documents\\Files\\School\\4 - Minor ( 1 - 2 )\\Project\\Musigen\\Resources\\Sound\\piano_c.wav");
 
 }
 
@@ -84,13 +82,13 @@ void MainWindow::keyReleaseEvent(QKeyEvent *key) {
 }
 
 void MainWindow::on_Record_clicked() {
-qDebug("startRec");
+
     mp->startRecording();
 
 }
 
 void MainWindow::on_Play_clicked() {
-qDebug("playRec");
+
     Melody *m = mp->stopRecording();
     mp->play(m);
 
@@ -99,16 +97,15 @@ qDebug("playRec");
 void MainWindow::resizeEvent(QResizeEvent *event) {
 
     resize(event->size());
-    notefield->resizeEvent(event);
+
+    menubar->updateSize(event);
     closeButton->updateSize(event);
+    //notefield->resizeEvent(event);
 
 }
 
 MainWindow::~MainWindow() {
 
-    delete menubar;
-    delete notefield;
-    delete mouseListener;
     delete instrument;
     delete mp;
 

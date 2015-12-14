@@ -39,6 +39,8 @@ NoteField::NoteField(QWidget *parent, MusicPlayer *mp) : QWidget(parent) {
 
 void NoteField::paintEvent(QPaintEvent *pe) {
 
+    Q_UNUSED(pe);
+
     QPainter painter(this);
     painter.drawPixmap(0, 0, width(), height(), (*board) );
 

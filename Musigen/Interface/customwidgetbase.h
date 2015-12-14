@@ -4,20 +4,33 @@
 #include <QWidget>
 #include <QResizeEvent>
 #include <QRect>
+#include <QPainter>
+#include <mouseaction.h>
+#include <mouselistener.h>
 
-class CustomWidgetBase : public QWidget {
+#include <QDebug>
+
+class CustomWidgetBase : public QWidget, public MouseAction {
 
     Q_OBJECT
 
 public:
     CustomWidgetBase(QWidget *parent = 0);
 
-    void updateSize(QResizeEvent *event);
+    virtual void updateSize(QResizeEvent *event);
+    virtual QSharedPointer<QRect> getArea() = 0;
+
+protected:
+    void initCanvas();
+    bool containsMousePointer(QSharedPointer<QRect> rectangle, QMouseEvent *event);
     virtual void calculateSize(const QSize size) {Q_UNUSED(size)}
     virtual void calculateLocation(const QSize size) {Q_UNUSED(size)}
 
-protected:
-    bool containsMousePointer(QRect *rectangle, QMouseEvent *event);
+    virtual void paintEvent(QPaintEvent *pe);
+    virtual void draw() = 0;
+
+    QSharedPointer<QImage>  canvas;
+    QSharedPointer<QBrush>  solidBrush;
 
 signals:
 

@@ -31,7 +31,7 @@ void MouseListener::mouseReleaseEvent(QMouseEvent *event) {
 }
 
 void MouseListener::mouseMoveEvent(QMouseEvent *event) {
-qDebug("move");
+
     for(std::vector<MouseArea>::iterator it = actionList.begin(); it != actionList.end(); ++it) {
 
         (*it).listener->mouseMoved(event);
@@ -44,9 +44,9 @@ void MouseListener::leaveEvent(QEvent *event) {
 
     Q_UNUSED(event)
 
-    QPointF p = QPointF(-1, -1);
-    QMouseEvent *m = new QMouseEvent(QEvent::MouseMove, p, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
-    mouseMoveEvent(m);
+    QMouseEvent *me = new QMouseEvent(QEvent::MouseMove, OUT_OF_BOUNDS, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+    mouseMoveEvent(me);
+    delete me;
 
 }
 

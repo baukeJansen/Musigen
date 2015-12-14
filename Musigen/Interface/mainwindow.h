@@ -7,9 +7,10 @@
 #include <musicplayer.h>
 #include <Interface/notefield.h>
 #include <Interface/menubar.h>
-#include <Interface/button.h>
+#include <Interface/Buttons/closebutton.h>
 #include <Melody/instrument.h>
 #include <QGraphicsAnchorLayout>
+#include <QScopedPointer>
 
 
 #include <QDebug>
@@ -45,11 +46,12 @@ private:
     irrklang::ISoundEngine* engine;
     Instrument *instrument;
     MusicPlayer *mp;
-    NoteField *notefield;
 
-    MenuBar *menubar;
-    MouseListener *mouseListener;
-    Button *closeButton;
+
+    QSharedPointer<MouseListener>   mouseListener;
+    QSharedPointer<MenuBar>         menubar;
+    QSharedPointer<CloseButton>     closeButton;
+    QSharedPointer<NoteField>       notefield;
 
 };
 
