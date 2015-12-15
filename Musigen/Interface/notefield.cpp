@@ -1,16 +1,18 @@
 #include "notefield.h"
+#include "mainwindow.h"
 
-NoteField::NoteField(QWidget *parent, MusicPlayer *mp) : CustomWidgetBase(parent) {
+NoteField::NoteField(QWidget *parent, QSharedPointer<MusicPlayer> mp, MainWindow *mainwindow) : CustomWidgetBase(parent) {
 
     resize(parent->width(), parent->height());
 
     this->mp = mp;
+    this->mainwindow = QSharedPointer<MainWindow> (mainwindow);
 
     draw();
-
+/*
     if (testSound) {
 
-        melody = new Melody(mp->getInstrument());
+        melody = QSharedPointer<Melody> (new Melody(mp->getInstrument()));
 
         melody->addNote(new Note(0, 500, 0));
         melody->addNote(new Note(500, 300, 5));
@@ -28,9 +30,9 @@ NoteField::NoteField(QWidget *parent, MusicPlayer *mp) : CustomWidgetBase(parent
         melody->addNote(new Note(5000, 600, 5));
 
 
-        mp->play(melody);
+        mp->play(melody.data());
 
-    }
+    }*/
 
 }
 
@@ -80,8 +82,7 @@ void NoteField::calculateLocation(const QSize size) {
 
     Q_UNUSED(size)
 
-    //MainWindow *p = dynamic_cast<MainWindow> (parent());
-
+    //auto m = mainwindow->menubar;
 
     //move();
 
@@ -102,16 +103,10 @@ QSharedPointer<QRect> NoteField::getArea() {
 
 void NoteField::playMelody() {
 
-    mp->play(melody);
+    //mp->play(melody);
 
 }
 
 NoteField::~NoteField() {
-
-    if (testSound) {
-
-        delete melody;
-
-    }
 
 }

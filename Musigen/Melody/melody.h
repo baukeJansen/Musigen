@@ -2,7 +2,7 @@
 #define MELODY_H
 
 #include <QObject>
-#include <vector>
+#include <QSharedPointer>
 #include <Melody/note.h>
 #include <Melody/instrument.h>
 
@@ -10,12 +10,12 @@
 class Melody {
 
     public:
-        Melody(Instrument *instrument);
+        Melody(QSharedPointer<Instrument> instrument);
         ~Melody();
 
-        Instrument* getInstrument();
+        QSharedPointer<Instrument> getInstrument();
         std::vector<Note*> getNotes();
-        void setInstrument(Instrument *instrument);
+        void setInstrument(QSharedPointer<Instrument> instrument);
         void addNote(Note *note);
         Note* removeNote(Note *note);
         void deleteNote(Note *note);
@@ -28,7 +28,7 @@ class Melody {
 
     private:
 
-        Instrument *instrument;
+        QSharedPointer<Instrument> instrument;
         std::vector<Note*> notes = {};
         std::vector<Note*>::iterator location;
 

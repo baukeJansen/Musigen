@@ -1,12 +1,12 @@
 #include "melody.h"
 
-Melody::Melody(Instrument *instrument) {
+Melody::Melody(QSharedPointer<Instrument> instrument) {
 
     this->setInstrument(instrument);
 
 }
 
-Instrument* Melody::getInstrument() {
+QSharedPointer<Instrument> Melody::getInstrument() {
 
     return instrument;
 
@@ -18,7 +18,7 @@ std::vector<Note*> Melody::getNotes() {
 
 }
 
-void Melody::setInstrument(Instrument *instrument) {
+void Melody::setInstrument(QSharedPointer<Instrument> instrument) {
 
     this->instrument = instrument;
 
@@ -68,8 +68,6 @@ void Melody::deleteNote(Note *note) {
 }
 
 Melody::~Melody() {
-
-
 
 }
 

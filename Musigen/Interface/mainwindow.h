@@ -47,8 +47,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     irrklang::ISoundEngine* engine;
-    Instrument *instrument;
-    MusicPlayer *mp;
+
+    QSharedPointer<Instrument>  instrument;
+    QSharedPointer<MusicPlayer> musicplayer;
 
 };
 

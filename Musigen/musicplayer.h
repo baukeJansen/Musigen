@@ -3,11 +3,11 @@
 
 #include <QObject>
 #include <QTimer>
-#include <thread>
+#include <Melody/instrument.h>
 #include <Melody/melody.h>
 #include <Melody/note.h>
-#include <vector>
 #include <recorder.h>
+#include <QSharedPointer>
 
 #include <qdebug.h>
 
@@ -18,11 +18,11 @@ class MusicPlayer : public QObject {
 
     public:
         MusicPlayer();
-        MusicPlayer(Instrument *instrument);
+        MusicPlayer(QSharedPointer<Instrument> instrument);
         ~MusicPlayer();
 
-        void setInstrument(Instrument *instrument);
-        Instrument* getInstrument();
+        void setInstrument(QSharedPointer<Instrument> instrument);
+        QSharedPointer<Instrument> getInstrument();
 
         void playNote(int toneHeight);
         void stopNote(int toneHeight);
@@ -43,7 +43,7 @@ class MusicPlayer : public QObject {
         void runTimer(int newTime);
         void addNoteEnd(Note* note);
 
-        Instrument *instrument;
+        QSharedPointer<Instrument> instrument;
         Melody *melody;
         Recorder *recorder;
         std::vector<Note*> startNotes;

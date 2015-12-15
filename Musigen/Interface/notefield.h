@@ -5,15 +5,18 @@
 #include <musicplayer.h>
 #include <Melody/melody.h>
 
+
 #include <QDebug>
 
 #define notes 11
 #define testSound false
 
+class MainWindow;
+
 class NoteField : public CustomWidgetBase {
 
     public:
-        NoteField(QWidget *parent = 0, MusicPlayer *mp = 0);
+        NoteField(QWidget *parent = 0, QSharedPointer<MusicPlayer> mp = QSharedPointer<MusicPlayer> (0), MainWindow *mainwindow = 0);
 
         void mousePressEvent(QMouseEvent *event);
         void mouseReleaseEvent(QMouseEvent *event);
@@ -29,8 +32,9 @@ class NoteField : public CustomWidgetBase {
 
     private:
 
-        Melody *melody;
-        MusicPlayer *mp;
+        //QSharedPointer<Melody> melody;
+        QSharedPointer<MusicPlayer> mp;
+        QSharedPointer<MainWindow> mainwindow;
 
         virtual void draw();
 

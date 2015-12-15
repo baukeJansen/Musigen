@@ -6,7 +6,7 @@ MusicPlayer::MusicPlayer() {
 
 }
 
-MusicPlayer::MusicPlayer(Instrument *instrument) {
+MusicPlayer::MusicPlayer(QSharedPointer<Instrument> instrument) {
 
     this->instrument = instrument;
     init();
@@ -23,13 +23,13 @@ void MusicPlayer::init() {
 
 }
 
-Instrument* MusicPlayer::getInstrument() {
+QSharedPointer<Instrument> MusicPlayer::getInstrument() {
 
     return instrument;
 
 }
 
-void MusicPlayer::setInstrument(Instrument *instrument) {
+void MusicPlayer::setInstrument(QSharedPointer<Instrument> instrument) {
 
     this->instrument = instrument;
 

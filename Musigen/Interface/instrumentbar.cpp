@@ -6,7 +6,5 @@ InstrumentBar::InstrumentBar(QWidget *parent) : QWidget(parent) {
 
 InstrumentBar::~InstrumentBar() {
 
-
-
 }
 

@@ -19,7 +19,7 @@ void Instrument::load(std::string newInstrument) {
     instrument = newInstrument;
 //sizeof(soundFilenames)
     for (unsigned int i = 0; i < 11; i++) {
-
+qDebug() << "insert: " << i;
         // create sound location string
         std::string soundName = soundLocation + newInstrument + '/' + soundFilenames[i] + "4.mp3";
 
@@ -40,13 +40,17 @@ void Instrument::unload() {
     if (instrument == "")
         return;
 
+    qDebug() << sounds.size();
+
     for (unsigned int i = 0; i < sounds.size(); i++) {
 
+        qDebug() << i;
         (*getSound(i)).drop();
 
     }
 
     instrument = "";
+    qDebug("h");
 
 }
 
@@ -78,5 +82,6 @@ irrklang::ISound* Instrument::getSound(unsigned int index) {
 Instrument::~Instrument() {
 
     unload();
+    qDebug("testx");
 
 }
