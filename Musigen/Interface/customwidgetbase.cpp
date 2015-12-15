@@ -6,12 +6,22 @@ CustomWidgetBase::CustomWidgetBase(QWidget *parent) : QWidget(parent) {
     canvas      = QSharedPointer<QImage>   (new QImage(size(), QImage::Format_RGB16));
 }
 
-void CustomWidgetBase::updateSize(QResizeEvent *event) {
+void CustomWidgetBase::updateSize(const QSize size) {
 
-    calculateSize(event->size());
-    calculateLocation(event->size());
+    calculateSize(size);
+    calculateLocation(size);
 
     draw();
+
+}
+
+void CustomWidgetBase::resize(int w, int h) {
+
+    // resize widget
+    QWidget::resize(w, h);
+
+    // resize canvas
+    canvas = QSharedPointer<QImage> (new QImage(w, h, QImage::Format_RGB16));
 
 }
 
@@ -27,6 +37,5 @@ void CustomWidgetBase::paintEvent(QPaintEvent *paintEvent) {
     QPainter drawWidget(this);
 
     drawWidget.drawImage(0,  0, (*canvas));
-    //drawWidget.drawPixmap(0, 0, (*canvas));
 
 }

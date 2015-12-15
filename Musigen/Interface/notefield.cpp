@@ -1,15 +1,12 @@
 #include "notefield.h"
 
-NoteField::NoteField(QWidget *parent, MusicPlayer *mp) : QWidget(parent) {
+NoteField::NoteField(QWidget *parent, MusicPlayer *mp) : CustomWidgetBase(parent) {
 
     resize(parent->width(), parent->height());
-    board = new QPixmap(width(), height());
-    painter = new QPainter(board);
-    solidBrush = new QBrush(Qt::SolidPattern);
 
     this->mp = mp;
 
-    drawBoard();
+    draw();
 
     if (testSound) {
 
@@ -37,15 +34,6 @@ NoteField::NoteField(QWidget *parent, MusicPlayer *mp) : QWidget(parent) {
 
 }
 
-void NoteField::paintEvent(QPaintEvent *pe) {
-
-    Q_UNUSED(pe);
-
-    QPainter painter(this);
-    painter.drawPixmap(0, 0, width(), height(), (*board) );
-
-}
-
 void NoteField::mousePressEvent(QMouseEvent *event) {
 
     event->pos();
@@ -66,7 +54,11 @@ void NoteField::mouseReleaseEvent(QMouseEvent *event) {
 
 }
 
-void NoteField::drawBoard() {
+void NoteField::draw() {
+
+    // create paint devince
+    auto painter = QSharedPointer<QPainter>  (new QPainter(canvas.data()));
+
 
     // draw background
     solidBrush->setColor(Qt::gray);
@@ -84,9 +76,26 @@ void NoteField::drawBoard() {
 
 }
 
-void NoteField::resizeEvent(QResizeEvent *event) {
+void NoteField::calculateLocation(const QSize size) {
 
-    resize(event->size());
+    Q_UNUSED(size)
+
+    //MainWindow *p = dynamic_cast<MainWindow> (parent());
+
+
+    //move();
+
+}
+
+void NoteField::calculateSize(const QSize size) {
+
+    Q_UNUSED(size)
+
+}
+
+QSharedPointer<QRect> NoteField::getArea() {
+
+    return QSharedPointer<QRect>(new QRect(pos(),size()));
 
 }
 
@@ -104,9 +113,5 @@ NoteField::~NoteField() {
         delete melody;
 
     }
-
-    delete solidBrush;
-    delete painter;
-    delete board;
 
 }

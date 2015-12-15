@@ -16,6 +16,7 @@ INPUT(
 ./debug\button.o
 ./debug\closebutton.o
 ./debug\openpianobutton.o
+./debug\piano.o
 ./debug\moc_musicplayer.o
 ./debug\moc_menubar.o
 ./debug\moc_mainwindow.o
@@ -25,4 +26,5 @@ INPUT(
 ./debug\moc_button.o
 ./debug\moc_closebutton.o
 ./debug\moc_openpianobutton.o
+./debug\moc_piano.o
 );

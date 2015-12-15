@@ -16,6 +16,7 @@ INPUT(
 ./release\button.o
 ./release\closebutton.o
 ./release\openpianobutton.o
+./release\piano.o
 ./release\moc_musicplayer.o
 ./release\moc_menubar.o
 ./release\moc_mainwindow.o
@@ -25,4 +26,5 @@ INPUT(
 ./release\moc_button.o
 ./release\moc_closebutton.o
 ./release\moc_openpianobutton.o
+./release\moc_piano.o
 );

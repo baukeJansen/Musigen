@@ -10,10 +10,13 @@ class CloseButton : public Button {
 public:
     CloseButton(QWidget *parent = 0);
 
+    virtual void calculateLocation(const QSize size);
+
 protected:
+    const int HEIGHT = 28;
+    const int WIDTH = 45;
 
     virtual void mouseReleased(QMouseEvent *event);
-
     virtual void draw();
     virtual QColor getButtonColor();
     virtual QColor getButtontextColor();

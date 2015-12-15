@@ -69,13 +69,6 @@ void Button::draw() {
 
 }
 
-void Button::calculateLocation(const QSize size) {
-
-    // update widget location
-    move(size.width() - WIDTH, 0);
-
-}
-
 QSharedPointer<QRect> Button::getArea() {
 
     return QSharedPointer<QRect>(new QRect(pos(), size()));
@@ -90,11 +83,11 @@ QColor Button::getButtonColor() {
         if(pressed)
             return BUTTON_CLICKED;
         else
-            return Qt::red;
+            return BUTTON_HOVER;
 
     } else {
 
-        return Qt::lightGray;
+        return BUTTON_DEFAULT;
 
     }
 

@@ -3,6 +3,7 @@
 
 #include <Interface/customwidgetbase.h>
 #include <Interface/Buttons/openpianobutton.h>
+#include <Interface/Buttons/closebutton.h>
 
 class MenuBar : public CustomWidgetBase {
 
@@ -11,7 +12,7 @@ class MenuBar : public CustomWidgetBase {
 public:
     MenuBar(QWidget *parent = 0);
 
-    virtual void updateSize(QResizeEvent *event);
+    virtual void updateSize(const QSize size);
     virtual void calculateSize(const QSize size);
     virtual QSharedPointer<QRect> getArea();
 
@@ -20,8 +21,9 @@ protected:
 
 private:
 
-    const int HEIGHT = 56;
+    const int HEIGHT = 28;
 
+    QSharedPointer<CloseButton>     closeButton;
     QSharedPointer<OpenPianoButton> pianoButton;
 
 signals:

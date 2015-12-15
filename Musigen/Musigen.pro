@@ -32,7 +32,8 @@ SOURCES += main.cpp \
     Interface/customwidgetbase.cpp \
     Interface/buttons/button.cpp \
     Interface/buttons/closebutton.cpp \
-    Interface/buttons/openpianobutton.cpp
+    Interface/buttons/openpianobutton.cpp \
+    Interface/Piano/piano.cpp
 
 HEADERS += \
     musicplayer.h \
@@ -51,7 +52,8 @@ HEADERS += \
     Interface/customwidgetbase.h \
     Interface/buttons/button.h \
     Interface/buttons/closebutton.h \
-    Interface/buttons/openpianobutton.h
+    Interface/buttons/openpianobutton.h \
+    Interface/Piano/piano.h
 
 FORMS   += mainwindow.ui
 

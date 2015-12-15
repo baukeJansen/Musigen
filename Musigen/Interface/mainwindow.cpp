@@ -17,9 +17,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     mouseListener = QSharedPointer<MouseListener> (new MouseListener(ui->centralWidget));
 
-    //notefield   = QSharedPointer<NoteField> (new NoteField(ui->centralWidget, mp));
     menubar     = QSharedPointer<MenuBar> (new MenuBar(ui->centralWidget));
-    closeButton = QSharedPointer<CloseButton> (new CloseButton(ui->centralWidget));
+    notefield   = QSharedPointer<NoteField> (new NoteField(ui->centralWidget, mp));
 
     setWindowFlags(Qt::Widget | Qt::CustomizeWindowHint);
     //setWindowFlags(Qt::FramelessWindowHint );
@@ -98,9 +97,8 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 
     resize(event->size());
 
-    menubar->updateSize(event);
-    closeButton->updateSize(event);
-    //notefield->resizeEvent(event);
+    menubar->updateSize(event->size());
+    notefield->updateSize(event->size());
 
 }
 

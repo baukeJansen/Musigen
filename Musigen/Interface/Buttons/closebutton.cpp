@@ -2,6 +2,9 @@
 
 CloseButton::CloseButton(QWidget *parent) : Button(parent) {
 
+    // set button size
+    resize(WIDTH, HEIGHT);
+
 }
 
 void CloseButton::mouseReleased(QMouseEvent *event) {
@@ -17,6 +20,13 @@ void CloseButton::mouseReleased(QMouseEvent *event) {
     }
 
     Button::mouseReleased(event);
+
+}
+
+void CloseButton::calculateLocation(const QSize size) {
+
+    // update widget location
+    move(size.width() - WIDTH, 0);
 
 }
 

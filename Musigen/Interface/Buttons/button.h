@@ -12,16 +12,15 @@ public:
     Button(QWidget *parent = 0);
     ~Button();
 
-    virtual void calculateLocation(const QSize size);
     virtual QSharedPointer<QRect> getArea();
-
 
 protected:
     const int HEIGHT = 28;
-    const int WIDTH = 45;
+    const int WIDTH = 38;
 
-    const QColor BUTTON_HOVER = QColor(0, 0, 0, 0);
-    const QColor BUTTON_CLICKED = QColor(255, 90, 90, 255);
+    const QColor BUTTON_DEFAULT = QColor(180, 180, 180, 255);
+    const QColor BUTTON_HOVER = QColor(200, 200, 200, 255);
+    const QColor BUTTON_CLICKED = QColor(220, 220, 220, 255);
 
     bool inArea = false;
     bool pressed = false;

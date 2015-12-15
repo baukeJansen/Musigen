@@ -5,9 +5,9 @@
 #include <mouselistener.h>
 #include <QKeyEvent>
 #include <musicplayer.h>
-#include <Interface/notefield.h>
+#include <Interface/Piano/piano.h>
 #include <Interface/menubar.h>
-#include <Interface/Buttons/closebutton.h>
+#include <Interface/notefield.h>
 #include <Melody/instrument.h>
 #include <QGraphicsAnchorLayout>
 #include <QScopedPointer>
@@ -27,12 +27,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    QSharedPointer<MouseListener>   mouseListener;
+    QSharedPointer<MenuBar>         menubar;
+    QSharedPointer<NoteField>       notefield;
+
 protected:
     virtual void keyPressEvent(QKeyEvent *key);
     virtual void keyReleaseEvent(QKeyEvent *key);
 
     void resizeEvent(QResizeEvent *event);
-
 
 private slots:
     void on_pushButton_clicked();
@@ -46,12 +49,6 @@ private:
     irrklang::ISoundEngine* engine;
     Instrument *instrument;
     MusicPlayer *mp;
-
-
-    QSharedPointer<MouseListener>   mouseListener;
-    QSharedPointer<MenuBar>         menubar;
-    QSharedPointer<CloseButton>     closeButton;
-    QSharedPointer<NoteField>       notefield;
 
 };
 
